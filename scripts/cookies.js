@@ -1,5 +1,8 @@
 "use strict";
 
+// huidige cookies opvragen en tonen in console
+console.log(document.cookie);
+
 // correcte login data
 let correctUserName = "creo";
 let correctPassword = "creo";
@@ -24,7 +27,11 @@ form.addEventListener("submit",function(e){
     if (CheckLogin(userName, password)) {
         // cookie opslaan om te onthouden dat we succesvol ingelogd zijn
         // cookie vorm: "key=value"
-        document.cookie = "loggedIn=true"
+        // expires --> cookie wordt op dit moment verwijderd
+        // SameSite --> heeft met cross-website communicatie te maken, zoek dit gerust eens op
+        document.cookie = "loggedIn=true;expires=Sun, 02 Jun 2024;SameSite=Lax";
+        // tweede cookie: username opslaan
+        document.cookie = "userName=" + userName + ";expires=Sun, 02 Jun 2024;SameSite=Lax";
         // naar volgende pagina gaan
         location.href = "success.html";
     }
