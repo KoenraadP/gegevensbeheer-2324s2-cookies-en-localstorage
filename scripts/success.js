@@ -6,8 +6,25 @@ console.log(document.cookie);
 // welcome alinea koppelen aan variabele
 let welcomeParagraph = document.getElementById("welcome");
 
+// button koppelen aan variabele
+let logoffButton = document.getElementById("logoff");
+
 // gebruikersnaam ophalen uit userName cookie
 let userName = GetCookie("userName");
+
+// tekst plaatsen in welcomeparagraph
+welcomeParagraph.innerText = "Hallo " + userName;
+
+// als er op afmelden geklikt wordt
+// terugkeren naar login.html
+// en loggedIn cookie verwijderen
+logoffButton.addEventListener("click",function(){
+    // cookies verwijderen --> datum op verleden instellen
+    document.cookie = "loggedIn=true;expires=Wed, 29 May 2024;SameSite=Lax";
+    document.cookie = "userName=" + userName + ";expires=Wed, 29 May 2024;SameSite=Lax";
+    // terugkeren naar login.html
+    location.href = "login.html";
+})
 
 // function to get the value
 // of a specific cookie
