@@ -19,6 +19,18 @@ function GetCookie(cookieName){
     let cookies = document.cookie;
     // cookies apart in array stoppen met split
     cookies = cookies.split("; ");
-    // even testen
-    console.log(cookies);
+    // alle cookies doorlopen met foreach en
+    // de naam vergelijken met de opgegeven parameter cookieName
+    cookies.forEach(element => {
+        // een cookie ziet er op dit moment zo uit: "loggedIn=true"
+        // if (element.startsWith(cookieName))
+        // iedere cookie splitsen op naam en waarde
+        let splitCookie = element.split("=");
+        // controleren of naam overeen komt met opgegeven parameter
+        if (splitCookie[0] == cookieName) {
+            cookieValue = splitCookie[1];
+        }
+    });
+    // waarde van cookie als return
+    return cookieValue;
 }
