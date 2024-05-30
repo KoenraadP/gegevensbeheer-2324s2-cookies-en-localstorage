@@ -15,7 +15,29 @@ languageLinks.forEach(element => {
         // gekozen taal opslaan in variabele
         // ophalen via id van aangeklikte element (e)
         let chosenLanguage = e.target.id;
-        // even testen
-        console.log(chosenLanguage);
+        // greeting paragraph aanpassen
+        greetingParagraph.innerText = SetGreeting(chosenLanguage);
     })
 });
+
+// function die een welkom string
+// als return heeft op basis van
+// gekozen language in parameter
+function SetGreeting(language){
+    // variabele voor uiteindelijke boodschap
+    let message = "";
+    // op basis van gekozen taal (parameter) message invullen
+    switch (language) {
+        case "fr":
+            message = "Bonjour!"
+            break;
+        case "en":
+            message = "Good morning!"
+            break;
+        default:
+            message = "Goedemorgen!"
+            break;
+    }
+    // gekozen message als return
+    return message;
+}
