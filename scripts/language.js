@@ -7,6 +7,11 @@ let greetingParagraph = document.getElementById("greeting");
 // alle elementen verzamelen met de class language-link
 let languageLinks = document.querySelectorAll(".language-link");
 
+// op basis van localStorage keuze
+// de greeting automatisch aanpassen bij inladen
+let chosenLanguage = localStorage.getItem("language");
+greetingParagraph.innerText = SetGreeting(chosenLanguage);
+
 // alle links hetzelfde click event geven
 languageLinks.forEach(element => {
     element.addEventListener("click",function(e){
@@ -17,6 +22,8 @@ languageLinks.forEach(element => {
         let chosenLanguage = e.target.id;
         // greeting paragraph aanpassen
         greetingParagraph.innerText = SetGreeting(chosenLanguage);
+        // keuze bewaren in localStorage
+        localStorage.setItem("language",chosenLanguage);
     })
 });
 
