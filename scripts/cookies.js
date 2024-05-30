@@ -13,10 +13,17 @@ let form = document.getElementById("form");
 
 // eventlistener toevoegen aan form
 // zodat er code uitgevoerd wordt bij het versturen
-form.addEventListener("submit",function(){
+form.addEventListener("submit",function(e){
+    // standaard submit gedrag blokkeren
+    // anders wordt de pagina gewoon herladen
+    e.preventDefault();
     // username en password uitlezen
     let userName = userNameInput.value;
     let password = passwordInput.value;
+    // controleren of ingevoerde gegevens juist zijn
+    if (CheckLogin(userName, password)) {
+        location.href = "success.html";
+    }
 });
 
 // function die controleert of username
