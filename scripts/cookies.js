@@ -22,6 +22,10 @@ form.addEventListener("submit",function(e){
     let password = passwordInput.value;
     // controleren of ingevoerde gegevens juist zijn
     if (CheckLogin(userName, password)) {
+        // cookie opslaan om te onthouden dat we succesvol ingelogd zijn
+        // cookie vorm: "key=value"
+        document.cookie = "loggedIn=true"
+        // naar volgende pagina gaan
         location.href = "success.html";
     }
 });
