@@ -35,9 +35,9 @@ form.addEventListener("submit",function(e){
         // cookie vorm: "key=value"
         // expires --> cookie wordt op dit moment verwijderd
         // SameSite --> heeft met cross-website communicatie te maken, zoek dit gerust eens op
-        document.cookie = "loggedIn=true;expires=Sun, 02 Jun 2024;SameSite=Lax";
+        document.cookie = "loggedIn=true;expires=Sun, 02 Jun 2024;path=/;SameSite=Lax";
         // tweede cookie: username opslaan
-        document.cookie = "userName=" + userName + ";expires=Sun, 02 Jun 2024;SameSite=Lax";
+        document.cookie = "userName=" + userName + ";expires=Sun, 02 Jun 2024;path=/;SameSite=Lax";
         // naar volgende pagina gaan
         location.href = "success.html";
     }

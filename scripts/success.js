@@ -20,8 +20,8 @@ welcomeParagraph.innerText = "Hallo " + userName;
 // en loggedIn cookie verwijderen
 logoffButton.addEventListener("click",function(){
     // cookies verwijderen --> datum op verleden instellen
-    document.cookie = "loggedIn=true;expires=Wed, 29 May 2024;SameSite=Lax";
-    document.cookie = "userName=" + userName + ";expires=Wed, 29 May 2024;SameSite=Lax";
+    document.cookie = "loggedIn=true;expires=Wed, 29 May 2024;path=/;SameSite=Lax";
+    document.cookie = "userName=" + userName + ";expires=Wed, 29 May 2024;path=/;SameSite=Lax";
     // terugkeren naar login.html
     location.href = "login.html";
 })
